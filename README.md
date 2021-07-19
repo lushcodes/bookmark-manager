@@ -5,6 +5,7 @@ As a user
 So that I can see what bookmarks I have
 I want to see a list of bookmarks
 ```
+## Class Diagram
 _____________________________________________
                   |
       User        |       Bookmark
@@ -18,8 +19,9 @@ _____________________________________________
                   |
 _____________________________________________
 
+## Domain Model
 
-![alt text](public/domain_model.png "Title")
+![alt text](public/domain_model.png "User story domain model")
 
 
 
