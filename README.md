@@ -25,5 +25,18 @@ _____________________________________________
 
 
 
+### Setting Up Database (PostgreSQL)
+
+1. Connect to psql
+2. Create the database using the psql command 
+```
+CREATE DATABASE BookmarkManager;
+```
+3. Connect to the database using the psql command
+```
+\c BookmarkManager
+```
+
+4. Run the query saved in the migrations folder under file 01
 
 
