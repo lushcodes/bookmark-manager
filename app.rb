@@ -1,13 +1,18 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 
-class Battle < Sinatra::Base
+class Bookmark_Manager < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
-    'Testing infrastructure working!'
+    erb(:index)
+  end
+
+  get '/bookmarks' do
+    @list = 'http://www.reddit.com'
+    erb(:bookmarks)
   end
 
   # start the server if ruby file executed directly

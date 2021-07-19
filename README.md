@@ -1,11 +1,11 @@
-### USER STORIES
+## USER STORIES
 
 ```
 As a user
 So that I can see what bookmarks I have
 I want to see a list of bookmarks
 ```
-## Class Diagram
+### Class Diagram
 _____________________________________________
                   |
       User        |       Bookmark
@@ -19,7 +19,7 @@ _____________________________________________
                   |
 _____________________________________________
 
-## Domain Model
+### Domain Model
 
 ![alt text](public/domain_model.png "User story domain model")
 
