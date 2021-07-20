@@ -1,14 +1,25 @@
 require 'pg'
 
 class Bookmark
+
+def self.create(url:)
+  if ENV['RACK_ENV'] == 'test'
+    con = PG.connect :dbname => 'bookmark_manager_test', :user => 'lukeusher'
+  else
+    con = PG.connect :dbname => 'bookmark_manager', :user => 'lukeusher'
+  end
+  con.exec("INSERT INTO bookmarks (url) VALUES ('#{url}')")
+end
+
+
+
+
   def self.all
-    con = if ENV['RACK_ENV'] == 'test'
-            # con = PG.connect :dbname => 'BookmarkManager_test', :user => 'lukeusher'
-            PG.connect dbname: 'bookmark_manager_test', user: 'elsemeijerink'
-          else
-            # con = PG.connect :dbname => 'BookmarkManager', :user => 'lukeusher'
-            PG.connect dbname: 'bookmark_manager', user: 'elsemeijerink'
-          end
+    if ENV['RACK_ENV'] == 'test'
+      con = PG.connect :dbname => 'bookmark_manager_test', :user => 'lukeusher'
+    else
+      con = PG.connect :dbname => 'bookmark_manager', :user => 'lukeusher'
+    end
     url_list = con.exec 'SELECT (url) FROM bookmarks;'
     array = []
     url_list.each do |row|

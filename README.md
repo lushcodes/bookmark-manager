@@ -1,10 +1,44 @@
+# Bookmark Manager Web App
+
+This web app will allow a user to save, manage and visit a list of bookmarks to a Bookmark Manager. The process of creating this app involved TDD & BDD principles.
+
 ## USER STORIES
+The user stories for the project were as follows:
 
 ```
 As a user
-So that I can see what bookmarks I have
+So that I can access my regular links
 I want to see a list of bookmarks
 ```
+
+```
+As a user
+So I can store store a bookmark to visit later
+I want to add a bookmark to the Bookmark Manager
+```
+## Setting Up Database (PostgreSQL)
+
+1. Install PostgreSQL
+
+2. Connect to psql through the terminal and create the production database using the following psql command:
+```
+CREATE DATABASE BookmarkManager;
+```
+3. Connect to the database using the psql command:
+```
+\c BookmarkManager
+```
+
+4. Run the query saved in the migrations folder under file 01
+
+5. Create a test database
+```
+CREATE DATABASE BookmarkManager;
+```
+6. Connect to the new test database and run the query from step 4.
+
+# PROCESS
+
 ### Class Diagram
 _____________________________________________
                   |
@@ -21,22 +55,6 @@ _____________________________________________
 
 ### Domain Model
 
+Firstly, I mapped out the interactions relevant to the first user story across the model, view, controller and client prior to the involvement of the database. 
+
 ![alt text](public/domain_model.png "User story domain model")
-
-
-
-### Setting Up Database (PostgreSQL)
-
-1. Connect to psql
-2. Create the database using the psql command 
-```
-CREATE DATABASE BookmarkManager;
-```
-3. Connect to the database using the psql command
-```
-\c BookmarkManager
-```
-
-4. Run the query saved in the migrations folder under file 01
-
-
