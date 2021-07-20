@@ -7,9 +7,9 @@ class Bookmark
 
       con = PG.connect :dbname => 'BookmarkManager', :user => 'lukeusher'
       
-      rs = con.exec "SELECT (url) FROM bookmarks;"
+      url_list = con.exec "SELECT (url) FROM bookmarks;"
       array = []
-      rs.each do |row|
+      url_list.each do |row|
       array << row['url']
       end
       array
@@ -19,7 +19,7 @@ class Bookmark
       
   ensure
   
-      rs.clear if rs
+      url_list.clear if url_list
       con.close if con
       
   end
