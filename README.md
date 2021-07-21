@@ -22,18 +22,18 @@ I want to add a bookmark to the Bookmark Manager
 
 2. Connect to psql through the terminal and create the production database using the following psql command:
 ```
-CREATE DATABASE BookmarkManager;
+CREATE DATABASE bookmark_manager;
 ```
 3. Connect to the database using the psql command:
 ```
-\c BookmarkManager
+\c bookmark_manager
 ```
 
-4. Run the query saved in the migrations folder under file 01
+4. Run the query saved in the db/migrations folder under file 01
 
 5. Create a test database
 ```
-CREATE DATABASE BookmarkManager;
+CREATE DATABASE bookmark_manager_test;
 ```
 6. Connect to the new test database and run the query from step 4.
 
@@ -57,4 +57,4 @@ _____________________________________________
 
 Firstly, I mapped out the interactions relevant to the first user story across the model, view, controller and client prior to the involvement of the database. 
 
-![alt text](public/domain_model.png "User story domain model")
+![alt text](public/domain_model.png "User Story Domain Model")
