@@ -2,14 +2,23 @@ require 'pg'
 
 class Bookmark
 
-def self.create(url:)
-  if ENV['RACK_ENV'] == 'test'
-    con = PG.connect :dbname => 'bookmark_manager_test', :user => 'lukeusher'
-  else
-    con = PG.connect :dbname => 'bookmark_manager', :user => 'lukeusher'
+  attr_reader :id, :title, :url
+
+  def initialize(id:, title:, url:)
+    @id = id
+    @title = title
+    @url = url
   end
-  con.exec("INSERT INTO bookmarks (url) VALUES ('#{url}')")
-end
+
+  def self.create(url:, title:)
+    if ENV['RACK_ENV'] == 'test'
+      con = PG.connect :dbname => 'bookmark_manager_test', :user => 'lukeusher'
+    else
+      con = PG.connect :dbname => 'bookmark_manager', :user => 'lukeusher'
+    end
+    result = con.exec("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}') RETURNING id, title, url;")
+  Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+  end
 
 
 
@@ -20,16 +29,10 @@ end
     else
       con = PG.connect :dbname => 'bookmark_manager', :user => 'lukeusher'
     end
-    url_list = con.exec 'SELECT (url) FROM bookmarks;'
-    array = []
-    url_list.each do |row|
-      array << row['url']
+
+    result = con.exec("SELECT * FROM bookmarks")
+    result.map do |bookmark|
+      Bookmark.new(id: bookmark['id'], title: bookmark['title'], url: bookmark['url'])
     end
-    array
-  rescue PG::Error => e
-    puts e.message
-  ensure
-    url_list.clear if url_list
-    con.close if con
   end
 end

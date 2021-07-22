@@ -23,7 +23,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'features/web_helpers'
-
+require 'features/db_helpers'
 # tell Capybara about our app class
 Capybara.app = Bookmark_Manager
 
