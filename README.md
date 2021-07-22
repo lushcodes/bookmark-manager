@@ -1,6 +1,6 @@
 # Bookmark Manager Web App
 
-This web app will allow a user to save, manage and visit a list of bookmarks to a Bookmark Manager. The process of creating this app involved TDD & BDD principles.
+This CRUD web app will allow a user to save, manage, visit and delete from a list of bookmarks via a Bookmark Manager. The process of creating this app involved TDD & BDD principles.
 
 ## USER STORIES
 The user stories for the project were as follows:
@@ -15,6 +15,12 @@ I want to see a list of bookmarks
 As a user
 So I can store store a bookmark to visit later
 I want to add a bookmark to the Bookmark Manager
+```
+
+```
+As a user
+So I can remove my bookmark from Bookmark Manager
+I want to delete a bookmark
 ```
 ## Setting Up Database (PostgreSQL)
 
